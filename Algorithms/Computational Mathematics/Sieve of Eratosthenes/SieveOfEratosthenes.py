@@ -2,10 +2,7 @@
 import math
 
 n = int(input("Enter the limit for the primes you want to find: "))
-arr = []
-
-for i in range(0, n + 1):
-    arr.append(True)
+arr = [True] * n
 
 for i in range(2, int(math.sqrt(n)) + 1):
     if arr[i]:
