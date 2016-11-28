@@ -1,2 +1,2 @@
 # Machine Learning
-TODO
+This is a class from Stanford Univerity taught on Coursera, at the end of this class I'll know how to apply the most advanced machine learning algorithms to such problems as anti-spam, image recognition, clustering, building recommender systems, and many other problems. Also I will know how to select the right algorithm for the right job, as well as become expert at 'debugging' and figuring out how to improve a learning algorithm's performance.
