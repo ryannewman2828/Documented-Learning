@@ -1,6 +1,9 @@
 #!/usr/bin/python
 
 n = int(input("Enter the limit for the primes you want to find: "))
+if(n <= 1):
+    exit()
+
 limit = int((n + 1) / 2)
 arr = [True] * limit
 
