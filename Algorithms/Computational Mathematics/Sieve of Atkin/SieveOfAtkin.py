@@ -1,8 +1,10 @@
 #!/usr/bin/python
+from datetime import datetime
 
 # TODO make more efficient
 
 limit = int(input("Enter the limit for the primes you want to find: "))
+start = datetime.now()
 arr = [True] * (limit + 61)
 
 if limit >= 2:
@@ -95,3 +97,4 @@ while n <= limit:
             print(n)
     w += 1
 
+print("Time: " + (datetime.now() - start).__str__())
