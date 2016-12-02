@@ -80,12 +80,11 @@ while n * n <= limit:
             q = 0
             while c <= limit:
                 for y in list1 + list2 + list3:
-                    c = n * n * (60 * w + y)
+                    c = n * n * (60 * q + y)
                     if c <= limit:
                         arr[c] = False
                 q += 1
     w += 1
-    n = w * w
 
 n = 7
 w = 0

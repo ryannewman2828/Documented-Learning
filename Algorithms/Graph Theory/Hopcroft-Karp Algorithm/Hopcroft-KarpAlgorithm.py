@@ -4,12 +4,12 @@ from functools import reduce
 
 # program assumes valid input
 class Vertex:
-    def __init__ (self, name, saturated):
+    def __init__(self, name, saturated):
         self.name = name
         self.saturated = saturated
         self.neighbours = []
 
-    def addNeighbour (self, vertex):
+    def addNeighbour(self, vertex):
         self.neighbours.append(vertex)
 
 
@@ -46,7 +46,7 @@ for e in edges:
         # cant determine so move to the back
         edges.append(e)
 
-#init vertices
+# init vertices
 verticesA = dict((
     v, Vertex(
         v, reduce((lambda y, z: y or z[0] == v or z[1] == v), [False] + matches))) for v in A)
@@ -55,6 +55,7 @@ verticesB = dict((
     v, Vertex(
         v, reduce((lambda y, z: y or z[0] == v or z[1] == v), [False] + matches))) for v in B)
 
+# set every vertices neighbours
 for e in edges:
     if e[0] in verticesA:
         verticesA[e[0]].addNeighbour(verticesB[e[1]])
