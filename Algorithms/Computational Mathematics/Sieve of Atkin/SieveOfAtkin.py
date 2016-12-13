@@ -7,39 +7,39 @@ limit = int(input("Enter the limit for the primes you want to find: "))
 start = datetime.now()
 arr = [True] * (limit + 61)
 
+if limit < 5:
+    exit()
 if limit >= 2:
     print(2)
 if limit >= 3:
     print(3)
 if limit >= 5:
     print(5)
-if limit < 5:
-    exit()
 
 list1 = [1, 13, 17, 29, 37, 41, 49, 53]
 list2 = [7, 19, 31, 43]
 list3 = [11, 23, 47, 59]
-x = 1
-y = 1
+listW = list1 + list2 + list3
 
-w = 0
-while w <= limit / 60:
-    for x in list1 + list2 + list3:
+for x in listW:
+    for w in range(int(limit / 60) + 1):
         arr[60 * w + x] = False
-    w += 1
 
-x = 1
-y = 1
+
+x = 4
+y = 0
 n = 5
+N = 5
 while n <= limit:
     while n <= limit:
         if n % 60 in list1:
             arr[n] = not arr[n]
-        y += 2
-        n = 4 * x * x + y * y
-    x += 1
-    y = 1
-    n = 4 * x * x + y * y
+        y += 8
+        n += y
+    x += 8
+    N += x
+    y = 0
+    n = N
 
 x = 1
 y = 2
