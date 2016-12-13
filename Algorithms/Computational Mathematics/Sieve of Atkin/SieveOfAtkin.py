@@ -1,8 +1,6 @@
 #!/usr/bin/python
 from datetime import datetime
 
-# TODO make more efficient
-
 limit = int(input("Enter the limit for the primes you want to find: "))
 start = datetime.now()
 arr = [True] * (limit + 61)
@@ -41,18 +39,20 @@ while n <= limit:
     y = 0
     n = N
 
-x = 1
-y = 2
+x = 0
+y = 4
 n = 7
+N = 7
 while n <= limit:
     while n <= limit:
         if n % 60 in list2:
             arr[n] = not arr[n]
-        y += 2
-        n = 3 * x * x + y * y
-    x += 2
-    y = 2
-    n = 3 * x * x + y * y
+        y += 8
+        n += y
+    x += 24
+    N += x
+    y = 4
+    n = N
 
 x = 2
 y = x - 1
@@ -67,33 +67,22 @@ while n <= limit:
     y = x - 1
     n = 3 * x * x - y * y
 
-# TODO optimize this
-w = 0
-n = 0
-while n * n <= limit:
-    for x in list1 + list2 + list3:
-        n = 60 * w + x
-        if n * n > limit:
-            break
+for x in listW:
+    n = x
+    while n * n <= limit:
         if arr[n]:
-            c = 0
-            q = 0
-            while c <= limit:
-                for y in list1 + list2 + list3:
-                    c = n * n * (60 * q + y)
-                    if c <= limit:
-                        arr[c] = False
-                q += 1
-    w += 1
+            for y in listW:
+                c = n * n * y
+                while c <= limit:
+                    arr[c] = False
+                    c += n * n * 60
+        n += 60
 
-n = 7
-w = 0
-primes = [2, 3, 5]
-while n <= limit:
-    for x in list1 + list2 + list3:
-        n = 60 * w + x
-        if n <= limit and arr[n]:
+for x in listW:
+    n = x
+    while n < limit:
+        if arr[n]:
             print(n)
-    w += 1
+        n += 60
 
 print("Time: " + (datetime.now() - start).__str__())
