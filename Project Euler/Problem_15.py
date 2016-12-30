@@ -1,25 +1,38 @@
 #!/usr/bin/python
+size = 21
 
-arr = [line.rstrip('\n') for line in open('problem_13.in')]
 
-for i in range(0, len(arr)):
-    arr[i] = list(arr[i])
-    for j in range(0, len(arr[i])):
-        arr[i][j] = int(arr[i][j])
+def recurse(x, y):
+    global grid
+    if x == size - 1:
+        if grid[x][y + 1] != 0:
+            grid[x][y] = grid[x][y + 1]
+            return grid[x][y]
+        grid[x][y] = recurse(x, y + 1)
+        return grid[x][y]
+    elif y == size - 1:
+        if grid[x + 1][y] != 0:
+            grid[x][y] = grid[x + 1][y]
+            return grid[x][y]
+        grid[x][y] = recurse(x + 1, y)
+        return grid[x][y]
+    else:
+        if grid[x][y + 1] != 0:
+            yPrime = grid[x][y + 1]
+        else:
+            yPrime = recurse(x, y + 1)
+        if grid[x + 1][y] != 0:
+            xPrime = grid[x + 1][y]
+        else:
+            xPrime = recurse(x + 1, y)
+        grid[x][y] = xPrime + yPrime
+        return grid[x][y]
 
-count = 0
-sum = 0
-for i in range(49, 9, -1):
-    sum = count
-    for j in range(0, 100):
-        sum += arr[j][i]
-    count = sum / 10
+grid = [0] * size
+for i in range(0, size):
+    grid[i] = [0] * size
 
-sum = 0
-arr = [line.rstrip('\n') for line in open('problem_13.in')]
-for i in range(0, 100):
-    sum += int(arr[i][:10])
-
-sum += count
-ans = str(sum)
-print(ans[:10])
+grid[size - 1][size - 2] = 1
+grid[size - 2][size - 1] = 1
+recurse(0, 0)
+print(grid[0][0])

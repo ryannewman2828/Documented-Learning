@@ -1,31 +1,39 @@
 #!/usr/bin/python
 
-dict = {'1': 1}
-
+r = 100000000
+dict = [0] * r
+dict[1] = 1
 
 def collatz(n):
     if n == 1:
         return 1
     elif n % 2 == 0:
-        n = int(n / 2)
-        if n in dict:
-            dict[str(2 * n)] = dict[str(n)] + 1
-            return dict[str(2 * n)]
-        dict[str(2 * n)] = collatz(n) + 1
-        return dict[str(2 * n)]
+        k = int(n/2)
+        if n < r and dict[k] != 0:
+            dict[n] = dict[k] + 1
+            return dict[n]
+        if n < r:
+            dict[n] = collatz(k) + 1
+            return dict[n]
+        else:
+            return collatz(k) + 1
     else:
-        n = 3 * n + 1
-        if n in dict:
-            dict[str(int((n - 1)/3))] = dict[str(n)] + 1
-            return dict[str(int((n - 1)/3))]
-        dict[str(int((n - 1) / 3))] = collatz(n) + 1
-        return dict[str(int((n - 1)/3))]
+        k = 3 * n + 1
+        if k < r and dict[k] != 0:
+            dict[n] = dict[k] + 1
+            return dict[n]
+        if n < r:
+            dict[n] = collatz(k) + 1
+            return dict[n]
+        else:
+            return collatz(k) + 1
 
 max = 0
+index = 0
 for i in range(1, 1000000):
-    print(i)
     m = collatz(i)
     if m > max:
         max = m
+        index = i
 
-print(max)
+print(index)
