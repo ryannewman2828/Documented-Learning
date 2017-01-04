@@ -12,4 +12,4 @@ step - generates the next move in the game</br>
 TODO:</br>
 graphics mode</br>
 make step take in an optional parameter for how many steps to take</br>
-make a time command to emply between steps</br>
+make a time command to employ between steps</br>
