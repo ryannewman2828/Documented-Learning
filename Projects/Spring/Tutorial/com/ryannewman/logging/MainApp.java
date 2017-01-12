@@ -10,8 +10,7 @@ public class MainApp {
 	static Logger log = Logger.getLogger(MainApp.class.getName());
 
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext(
-				"Beans.xml");
+		ApplicationContext context = new ClassPathXmlApplicationContext("Beans.xml");
 
 		log.info("Going to create HelloWord Obj");
 
