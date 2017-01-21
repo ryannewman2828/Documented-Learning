@@ -1,3 +1,5 @@
 public interface Expression {
-	public Value<?> interpret();
+	public void set(String name, int value);
+	public String print();
+	public int interpret();
 }
