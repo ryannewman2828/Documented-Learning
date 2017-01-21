@@ -1,10 +1,12 @@
 import java.util.Scanner;
 
 public class Main {
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Scanner sc = new Scanner(System.in);
+		System.out.println("Game has started");
 		String cmd;
 		Grid g = new Grid();
+		long time = 0;
 		while(true){
 			cmd = sc.next();
 			if("new".equals(cmd)){
@@ -23,8 +25,14 @@ public class Main {
 				g.print();
 			} else if("step".equals(cmd)){
 				g.finalize();
-				g.step();
-				g.print();
+				int n = sc.nextInt();
+				for (int i = 0; i < n; i++) {
+					g.step();
+					g.print();
+					Thread.sleep(time);
+				}
+			} else if("time".equals(cmd)){
+				time = sc.nextLong();
 			}
 		}
 	}

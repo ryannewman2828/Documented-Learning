@@ -7,6 +7,7 @@ public class Grid {
 	private List<Cell> watching;
 	private int gridSize;
 	private TextDisplay td;
+	private GraphicDisplay gd;
 	
 	public Grid() {
 		theGrid = new ArrayList<>();
@@ -23,9 +24,11 @@ public class Grid {
 			}
 		}
 		td = new TextDisplay(n);
+		gd = new GraphicDisplay(n);
 		for (int i = 0; i < gridSize; i++) {
 			for (int j = 0; j < gridSize; j++) {
 				theGrid.get(i).get(j).attach(td);
+				theGrid.get(i).get(j).attach(gd);
 				if(j - 1 >= 0){
 					if(i - 1 >= 0){
 						theGrid.get(i).get(j).attach(theGrid.get(i - 1).get(j - 1));
@@ -86,6 +89,7 @@ public class Grid {
 	
 	public void print(){
 		td.print();
+		gd.print();
 	}
 	
 	private void updateWatching(Cell c){
