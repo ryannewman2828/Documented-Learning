@@ -12,13 +12,31 @@ class Vertex:
     def addNeighbour(self, vertex):
         self.neighbours.append(vertex)
 
+    def __eq__(self, other):
+        return self.name == other.name
+
+    def __str__(self):
+        return self.name
+
+    def __repr__(self):
+        return self.name
+
+    def __copy__(self):
+        v = Vertex(self.name, self.saturated)
+        v.neighbours = self.neighbours.copy()
+        return v
+
 
 def setMinus(set1, set2):
     return list(filter((lambda x: x not in set2), set1))
 
-VERTICE_FILE_NAME = "vertice.txt"
-EDGES_FILE_NAME = "edge.txt"
-MATCHING_FILE_NAME = "matching.txt"
+
+def inMatching(matching, v1, v2):
+    return (matching[0] == v1.name and matching[1] == v2.name) or (matching[1] == v1.name and matching[0] == v2.name)
+
+VERTICE_FILE_NAME = "vertice2.txt"
+EDGES_FILE_NAME = "edge2.txt"
+MATCHING_FILE_NAME = "empty.txt"
 
 # init list
 vertices = [line.rstrip('\n') for line in open(VERTICE_FILE_NAME)]
@@ -30,7 +48,6 @@ edges = list(map((lambda x: tuple(x)), edges))
 matches = list(map((lambda x: tuple(x)), matches))
 
 # create bipartition
-#todo optimize this
 A = [vertices[0]]
 B = []
 for e in edges:
@@ -64,8 +81,72 @@ for e in edges:
         verticesB[e[0]].addNeighbour(verticesA[e[1]])
         verticesA[e[1]].addNeighbour(verticesB[e[0]])
 
-X = list(filter((lambda x: not x[1].saturated), verticesA.items()))
+X = list(filter((lambda x: not x.saturated), verticesA.values()))
 Y = []
+orig = X.copy()
+pr = [[x] for x in X]
 
-#while True:
+while True:
+    setM = setMinus(verticesB.values(), Y)
+    found = False
+    vert = Vertex("", False)
+    for v in setM:
+        for u in X:
+            if u in v.neighbours or v in u.neighbours:
+                found = True
+                vert = v
+                Y.append(v)
+                for i in pr:
+                    if i[len(i) - 1] == u:
+                        pr.append(i.copy())
+                        i.append(v)
+                        break
+                break
+        if found:
+            break
 
+    # We have found the maximum matching and minimum cover so we print it
+    if not found:
+        print("matching is:")
+        for m in matches:
+            print(m[0] + " " + m[1])
+        print("Cover is:")
+        for c in Y + setMinus(verticesA.values(), X):
+            print(c.name)
+        break
+
+    #we have an M-augmenting path, so we make a larger matching
+    if not vert.saturated:
+        for i in pr:
+            if i[len(i) - 1] == vert:
+                for m in matches:
+                    for j in range(0, len(i) - 1):
+                        if inMatching(m, i[j], i[j + 1]):
+                            matches.remove(m)
+                m = 0
+                i[0].saturated = True
+                i[len(i) - 1].saturated = True
+                for n in range(0, len(i)):
+                    if n % 2 == 0:
+                        m = i[n].name
+                    else:
+                        matches.append((m, i[n].name))
+
+        X = list(filter((lambda x: not x.saturated), verticesA.values()))
+        Y = []
+        orig = X.copy()
+        pr = [[x] for x in X]
+        continue
+
+    #
+    setM = setMinus(verticesA.values(), X)
+    found = False
+    for w in setM:
+        for z in Y:
+            for m in matches:
+                if inMatching(m, w, z) and not found:
+                    X.append(w)
+                    found = True
+                    for i in pr:
+                        if i[len(i) - 1] == z:
+                            i.append(w)
