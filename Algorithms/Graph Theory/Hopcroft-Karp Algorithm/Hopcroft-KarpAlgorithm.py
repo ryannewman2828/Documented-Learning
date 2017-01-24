@@ -27,15 +27,11 @@ class Vertex:
         return v
 
 
-def setMinus(set1, set2):
-    return list(filter((lambda x: x not in set2), set1))
-
-
 def inMatching(matching, v1, v2):
     return (matching[0] == v1.name and matching[1] == v2.name) or (matching[1] == v1.name and matching[0] == v2.name)
 
-VERTICE_FILE_NAME = "vertice2.txt"
-EDGES_FILE_NAME = "edge2.txt"
+VERTICE_FILE_NAME = "vertice.txt"
+EDGES_FILE_NAME = "edge.txt"
 MATCHING_FILE_NAME = "empty.txt"
 
 # init list
@@ -87,26 +83,21 @@ orig = X.copy()
 pr = [[x] for x in X]
 
 while True:
-    setM = setMinus(verticesB.values(), Y)
-    found = False
-    vert = Vertex("", False)
-    for v in setM:
-        for u in X:
-            if u in v.neighbours or v in u.neighbours:
-                found = True
-                vert = v
-                Y.append(v)
-                for i in pr:
-                    if i[len(i) - 1] == u:
-                        pr.append(i.copy())
-                        i.append(v)
-                        break
-                break
-        if found:
-            break
+    # Create a level in our alternating level graph
+    l = []
+    for strand in pr:
+        v = strand[len(strand) - 1]
+        for u in v.neighbours:
+            if u not in Y:
+                s = strand.copy()
+                s.append(u)
+                l.append(s)
+                Y.append(u)
+    found = len(l) == 0
+    pr = l
 
     # We have found the maximum matching and minimum cover so we print it
-    if not found:
+    if found:
         print("matching is:")
         for m in matches:
             print(m[0] + " " + m[1])
@@ -115,38 +106,39 @@ while True:
             print(c.name)
         break
 
-    #we have an M-augmenting path, so we make a larger matching
-    if not vert.saturated:
-        for i in pr:
-            if i[len(i) - 1] == vert:
-                for m in matches:
-                    for j in range(0, len(i) - 1):
-                        if inMatching(m, i[j], i[j + 1]):
-                            matches.remove(m)
-                m = 0
-                i[0].saturated = True
-                i[len(i) - 1].saturated = True
-                for n in range(0, len(i)):
-                    if n % 2 == 0:
-                        m = i[n].name
-                    else:
-                        matches.append((m, i[n].name))
-
-        X = list(filter((lambda x: not x.saturated), verticesA.values()))
-        Y = []
-        orig = X.copy()
-        pr = [[x] for x in X]
+    #TODO: rewrite this
+    # we have an augmenting path
+    vertex = Vertex("", False)
+    cont = False
+    for strand in pr:
+        v = strand[len(strand) - 1]
+        if not v.saturated:
+            for m in matches:
+                for j in range(0, len(strand) - 1):
+                    if inMatching(m, strand[j], strand[j + 1]):
+                        matches.remove(m)
+            m = ""
+            strand[0].saturated = True
+            strand[len(strand) - 1].saturated = True
+            for n in range(0, len(strand)):
+                if n % 2 == 0:
+                    m = strand[n].name
+                else:
+                    matches.append((m, strand[n].name))
+            X = list(filter((lambda x: not x.saturated), verticesA.values()))
+            Y = []
+            pr = [[x] for x in X]
+            cont = True
+        if cont:
+            break
+    if cont:
         continue
 
-    #
-    setM = setMinus(verticesA.values(), X)
-    found = False
-    for w in setM:
-        for z in Y:
+    # Create the matching layer of our alternating level graph
+    for strand in pr:
+        v = strand[len(strand) - 1]
+        for u in v.neighbours:
             for m in matches:
-                if inMatching(m, w, z) and not found:
-                    X.append(w)
-                    found = True
-                    for i in pr:
-                        if i[len(i) - 1] == z:
-                            i.append(w)
+                if inMatching(m, u, v):
+                    strand.append(u)
+                    X.append(u)
