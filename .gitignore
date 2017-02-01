@@ -1,2 +1,31 @@
 *.test
 *.exe
+
+target/
+!.mvn/wrapper/maven-wrapper.jar
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+Projects/Spring/SQL-Sandbox/.mvn/wrapper/maven-wrapper.properties
+Projects/Spring/SQL-Sandbox/mvnw
+*.jar
+Projects/Spring/SQL-Sandbox/mvnw.cmd
