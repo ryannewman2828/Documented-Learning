@@ -22,14 +22,12 @@ p = zeros(size(X, 1), 1);
 %
 
 
-X = [ones(m, 1) X]
+X = [ones(m, 1) X];
 
-Theta1
-Theta2
-z2 = sigmoid(X * Theta1')
-z2 = [ones(m, 1) z2]
+z2 = sigmoid(X * Theta1');
+z2 = [ones(m, 1) z2];
 
-z3 = sigmoid(z2 * Theta2')
+z3 = sigmoid(z2 * Theta2');
 
 a = max(z3, [], 2);
 p = (a == z3);

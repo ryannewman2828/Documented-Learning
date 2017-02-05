@@ -38,9 +38,9 @@ for i = 1:size(vals,1)
       min_predict_error = predict_error;
       index_c = i;
       index_sigma = j;
-      end
     end
- end
+  end
+end
 
 sigma = vals(index_sigma);
 C = vals(index_c);

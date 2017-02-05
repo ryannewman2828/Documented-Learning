@@ -20,10 +20,10 @@ grad = zeros(size(theta));
 
 [cost, g] = costFunction(theta, X, y);
 second_sum = sum(theta(2:(size(theta))) .^2);
-J = cost + (lambda/(2 * m)) * second_sum;
+J = cost + (lambda /(2 * m)) * second_sum;
 
-grad = g + ((lambda / m) * theta)
-grad(1:1) = g(1:1)
+grad = g + ((lambda / m) * theta);
+grad(1:1) = g(1:1);
 
 % =============================================================
 

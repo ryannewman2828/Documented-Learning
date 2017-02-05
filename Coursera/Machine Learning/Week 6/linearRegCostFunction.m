@@ -22,7 +22,7 @@ grad = zeros(size(theta));
 
 
 temp = theta;
-temp(1,1) = 0;
+temp(1, 1) = 0;
 J = (1 / (2 * m)) * (sum(((X * theta) - y) .^ 2) + lambda * sum(temp .^ 2));
 grad = (1 / m) * (((X * theta) - y)' * X)' + (lambda / m) * temp;
 

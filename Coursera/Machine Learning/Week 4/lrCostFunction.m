@@ -40,7 +40,7 @@ H = sigmoid(X * theta);
 cost = (1 / m) * (((y .* -1)' * log(H)) - ((1 .- y)' * log(1 .- H)));
 g = (1 / m) * (X' * (H - y));
 
-J = cost + (lambda/(2 * m)) * sum(theta(2:(size(theta))) .^2);
+J = cost + (lambda /(2 * m)) * sum(theta(2:(size(theta))) .^ 2);
 
 temp = theta;
 temp(1) = 0;
