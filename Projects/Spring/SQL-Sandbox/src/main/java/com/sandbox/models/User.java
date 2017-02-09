@@ -6,6 +6,8 @@ public class User {
     private String name;
     private String email;
     private int salary;
+    private int grade;
+    private boolean pass;
 
     public int getId() {
         return id;
@@ -38,4 +40,21 @@ public class User {
     public void setSalary(int salary) {
         this.salary = salary;
     }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public void setGrade(int grade) {
+        this.grade = grade;
+    }
+
+    public boolean isPass() {
+        return pass;
+    }
+
+    public void setPass(boolean pass) {
+        this.pass = pass;
+    }
+
 }

@@ -31,4 +31,20 @@ public class SqlController {
         return databaseService.selectAll();
     }
 
+    @RequestMapping("/select/selected")
+    public List<User> selectSelected() { return databaseService.selectSelected(); }
+
+    @RequestMapping("/select/pass")
+    public List<User> selectPass() { return databaseService.selectPass(); }
+
+    @RequestMapping("/select/salary")
+    public List<User> selectSalary() {
+        return databaseService.selectSalary();
+    }
+
+    @RequestMapping("/select/fail-salary")
+    public List<User> selectFailAndSalary() { return databaseService.selectFailAndSalary(); }
+
+    @RequestMapping("/update/pass")
+    public void updatePass() { databaseService.updatePass(); }
 }

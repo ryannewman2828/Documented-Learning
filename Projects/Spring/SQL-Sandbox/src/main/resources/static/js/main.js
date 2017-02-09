@@ -10,9 +10,49 @@
     function demoCtrl($scope, $http, sqlService) {
         console.log("demo running");
         $scope.users = [];
-        sqlService.display().then(function(data) {
+
+        var displayData = function () {
+            sqlService.display().then(function(data) {
                 $scope.users = data.data;
             });
+        }
+        displayData();
+
+        $scope.exec1 = function () {
+            sqlService.insert().then(displayData);
+        }
+
+        $scope.exec2 = function () {
+            displayData();
+        }
+
+        $scope.exec3 = function () {
+            sqlService.select1().then(function(data){
+                $scope.users = data.data;
+            });
+        }
+
+        $scope.exec4 = function () {
+            sqlService.select2().then(function(data){
+                $scope.users = data.data;
+            });
+        }
+
+        $scope.exec5 = function () {
+            sqlService.select3().then(function(data){
+                $scope.users = data.data;
+            });
+        }
+
+        $scope.exec6 = function () {
+            sqlService.select4().then(function(data){
+                $scope.users = data.data;
+            });
+        }
+
+        $scope.exec7 = function () {
+            sqlService.update().then(displayData);
+        }
     }
 
     // Service creation
@@ -23,17 +63,42 @@
     sqlService.$inject = ['$http'];
     function sqlService ($http) {
 
-        var greet = function () {
-            return $http.get('/greet');
-        };
+        var insert = function () {
+            return $http.get('/create');
+        }
 
          var display = function () {
             return $http.get('/select/all');
-        }
+         }
+
+         var select1 = function () {
+            return $http.get('/select/selected');
+         }
+
+         var select2 = function () {
+            return $http.get('/select/pass');
+         }
+
+         var select3 = function () {
+             return $http.get('/select/salary');
+         }
+
+         var select4 = function () {
+            return $http.get('/select/fail-salary');
+         }
+
+         var update = function() {
+            return $http.get('/update/pass');
+         }
 
         return {
-            greet : greet,
-            display : display
+            insert : insert,
+            display : display,
+            select1 : select1,
+            select2 : select2,
+            select3 : select3,
+            select4 : select4,
+            update : update
         };
     }
 

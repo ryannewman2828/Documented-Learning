@@ -23,6 +23,10 @@
          table tr:nth-child(even) {
             background-color: #ffffff;
          }
+
+         center {
+            padding-top: 15px;
+         }
       </style>
 
 </head>
@@ -39,6 +43,8 @@
             <th>Name</th>
             <th>Email</th>
             <th>Salary</th>
+            <th>Grade</th>
+            <th>Pass</th>
         </tr>
 
         <tr ng-repeat = "user in users">
@@ -46,11 +52,49 @@
             <td>{{ user.name }}</td>
             <td>{{ user.email }}</td>
             <td>{{ user.salary }}</td>
+            <td>{{ user.grade }}</td>
+            <td>{{ user.pass }}</td>
         </tr>
 
     </table>
 
     <hr>
+
+    <div class="entry">
+        <center><h2>Insert a value into the database</h2></center>
+        <center><code>INSERT INTO users(name, email, salary, grade, pass) VALUES ('Ryan','ranewman@uwaterloo.ca', 100000, 100, 1);</code></center>
+        <center><button ng-click="exec1()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Selecting all values from the DataBase</h2></center>
+        <center><code>SELECT * FROM users;</code></center>
+        <center><button ng-click="exec2()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Selecting only the name, email and salary</h2></center>
+        <center><code>SELECT name, email, salary FROM users;</code></center>
+        <center><button ng-click="exec3()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Select all passing users</h2></center>
+        <center><code>SELECT * FROM users WHERE pass;</code></center>
+        <center><button ng-click="exec4()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Select all users with a salary higher than 50000</h2></center>
+        <center><code>SELECT * FROM users WHERE salary > 50000;</code></center>
+        <center><button ng-click="exec5()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Select the name of the users who are failing with a salary higher than 70000</h2></center>
+        <center><code>SELECT name FROM users WHERE salary > 70000 AND NOT pass;</code></center>
+        <center><button ng-click="exec6()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Update all users to passing if they should be passing</h2></center>
+        <center><code>UPDATE users SET pass = 1 WHERE grade >= 50;</code></center>
+        <center><button ng-click="exec7()">Execute</button></center>
+    </div>
 
 </body>
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.min.js"></script>

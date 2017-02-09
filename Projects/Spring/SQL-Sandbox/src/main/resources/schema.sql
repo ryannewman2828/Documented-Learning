@@ -1,4 +1,3 @@
-USE Userbase;
 CREATE TABLE IF NOT EXISTS Users
 (
     id int NOT NULL AUTO_INCREMENT,
