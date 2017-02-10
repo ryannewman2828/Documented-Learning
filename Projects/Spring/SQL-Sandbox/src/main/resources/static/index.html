@@ -39,21 +39,11 @@
 
     <table>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Salary</th>
-            <th>Grade</th>
-            <th>Pass</th>
+            <th ng-repeat="field in users[0].fields.split(';')">{{field}}</th>
         </tr>
 
         <tr ng-repeat = "user in users">
-            <td>{{ user.id }}</td>
-            <td>{{ user.name }}</td>
-            <td>{{ user.email }}</td>
-            <td>{{ user.salary }}</td>
-            <td>{{ user.grade }}</td>
-            <td>{{ user.pass }}</td>
+            <td ng-repeat = "field in user.fields.split(';')">{{ user[field.toLowerCase()] }}</td>
         </tr>
 
     </table>

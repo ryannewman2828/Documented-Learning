@@ -8,6 +8,7 @@ public class User {
     private int salary;
     private int grade;
     private boolean pass;
+    private String fields;
 
     public int getId() {
         return id;
@@ -57,4 +58,11 @@ public class User {
         this.pass = pass;
     }
 
+    public String getFields() {
+        return fields;
+    }
+
+    public void setFields(String fields) {
+        this.fields = fields;
+    }
 }

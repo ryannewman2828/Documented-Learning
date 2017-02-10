@@ -11,10 +11,24 @@
         console.log("demo running");
         $scope.users = [];
 
+        var formatUsers = function () {
+            if ($scope.users.length > 0) {
+                var fields = $scope.users[0].fields.split(';');
+            }
+            $scope.users.map(function(user) {
+                var u = {}
+                for (var field in fields) {
+                    u[fields[field].toLowerCase()] = user[fields[field].toLowerCase()];
+                }
+                return u;
+            });
+        }
+
         var displayData = function () {
             sqlService.display().then(function(data) {
                 $scope.users = data.data;
             });
+            formatUsers();
         }
         displayData();
 
@@ -29,24 +43,28 @@
         $scope.exec3 = function () {
             sqlService.select1().then(function(data){
                 $scope.users = data.data;
+                formatUsers();
             });
         }
 
         $scope.exec4 = function () {
             sqlService.select2().then(function(data){
                 $scope.users = data.data;
+                formatUsers();
             });
         }
 
         $scope.exec5 = function () {
             sqlService.select3().then(function(data){
                 $scope.users = data.data;
+                formatUsers();
             });
         }
 
         $scope.exec6 = function () {
             sqlService.select4().then(function(data){
                 $scope.users = data.data;
+                formatUsers();
             });
         }
 

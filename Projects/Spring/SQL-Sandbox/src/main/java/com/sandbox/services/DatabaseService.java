@@ -33,6 +33,7 @@ public class DatabaseService {
             user.setSalary(rs.getInt("salary"));
             user.setGrade(rs.getInt("grade"));
             user.setPass(rs.getBoolean("pass"));
+            user.setFields("Id;Name;Email;Salary;Grade;Pass");
             return user;
         });
     }
@@ -44,6 +45,7 @@ public class DatabaseService {
             user.setName(rs.getString("name"));
             user.setEmail(rs.getString("email"));
             user.setSalary(rs.getInt("salary"));
+            user.setFields("Name;Email;Salary");
             return user;
         });
     }
@@ -58,6 +60,7 @@ public class DatabaseService {
             user.setSalary(rs.getInt("salary"));
             user.setGrade(rs.getInt("grade"));
             user.setPass(rs.getBoolean("pass"));
+            user.setFields("Id;Name;Email;Salary;Grade;Pass");
             return user;
         });
     }
@@ -72,6 +75,7 @@ public class DatabaseService {
             user.setSalary(rs.getInt("salary"));
             user.setGrade(rs.getInt("grade"));
             user.setPass(rs.getBoolean("pass"));
+            user.setFields("Id;Name;Email;Salary;Grade;Pass");
             return user;
         });
     }
@@ -81,6 +85,7 @@ public class DatabaseService {
         return jdbcTemplate.query(QUERY, (rs, id) -> {
             User user = new User();
             user.setName(rs.getString("name"));
+            user.setFields("name");
             return user;
         });
     }
