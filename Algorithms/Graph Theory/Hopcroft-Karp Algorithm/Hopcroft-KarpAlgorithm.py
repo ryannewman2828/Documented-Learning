@@ -15,16 +15,14 @@ class Vertex:
     def __eq__(self, other):
         return self.name == other.name
 
-    def __str__(self):
-        return self.name
-
-    def __repr__(self):
-        return self.name
-
     def __copy__(self):
         v = Vertex(self.name, self.saturated)
         v.neighbours = self.neighbours.copy()
         return v
+
+
+def setMinus(set1, set2):
+    return list(filter((lambda x: x not in set2), set1))
 
 
 def inMatching(matching, v1, v2):
@@ -106,32 +104,31 @@ while True:
             print(c.name)
         break
 
-    #TODO: rewrite this
     # we have an augmenting path
     vertex = Vertex("", False)
     cont = False
+    s = []
     for strand in pr:
         v = strand[len(strand) - 1]
         if not v.saturated:
-            for m in matches:
-                for j in range(0, len(strand) - 1):
-                    if inMatching(m, strand[j], strand[j + 1]):
-                        matches.remove(m)
-            m = ""
-            strand[0].saturated = True
-            strand[len(strand) - 1].saturated = True
-            for n in range(0, len(strand)):
-                if n % 2 == 0:
-                    m = strand[n].name
-                else:
-                    matches.append((m, strand[n].name))
-            X = list(filter((lambda x: not x.saturated), verticesA.values()))
-            Y = []
-            pr = [[x] for x in X]
             cont = True
-        if cont:
-            break
+            s = strand
     if cont:
+        for m in matches:
+            for j in range(0, len(s) - 1):
+                if inMatching(m, s[j], s[j + 1]):
+                    matches.remove(m)
+        m = ""
+        s[0].saturated = True
+        s[len(s) - 1].saturated = True
+        for n in range(0, len(s)):
+            if n % 2 == 0:
+                m = s[n].name
+            else:
+                matches.append((m, s[n].name))
+        X = list(filter((lambda x: not x.saturated), verticesA.values()))
+        Y = []
+        pr = [[x] for x in X]
         continue
 
     # Create the matching layer of our alternating level graph
