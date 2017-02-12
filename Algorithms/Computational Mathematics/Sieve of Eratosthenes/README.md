@@ -1,2 +1,2 @@
 # Sieve of Eratosthenes
-TODO
+The Sieve of Eratosthenes is one of the Prime Number Sieves. The algorithm works by continually marking composite the multiples of all prior primes. It does this by using a given prime to generate an arithmetic sequence starting from the prime increasing by the prime. The Sieve of Eratosthenes is one of the most efficient ways to find smaller primes. This algorithm is used in conjunction with the Sieve of Atkin in most modern prime number algorithms, this for the small and Atkin when the numbers become quite large. 
