@@ -14,3 +14,9 @@
 13. Large sum
 14. Longest Collatz sequence
 15. Lattice paths
+16. Power digit sum
+17. Number letter counts
+18. Maximum path sum I
+19. Counting Sundays
+20. Factorial digit sum
+67. Maximum path sum II
