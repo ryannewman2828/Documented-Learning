@@ -1,2 +1,0 @@
-# Computational Mathematics
-TODO
