@@ -1,2 +1,2 @@
 # Hopcroft-Karp Algorithm
-TODO
+The Hopcroft-Karp Algorithm is an algorithm in graph theory that takes as input a biparitite graph and produces a maximum matching and also for free it produces a minimum cover. For random graphs the runtime of the algorithm is essential linear. The algortihm works by finding an augmenting path in the matching and then expanding the matching by one until the maximum matching is reached. The algorithm doesn't just find any augmenting path, it find the shortest augmenting path which allows the same principle to be extended to a more complex algorithm that works with non-bipartite graphs and has the same runtime. Thhis algorithm works as a direct consequence of Konigs theorem.
