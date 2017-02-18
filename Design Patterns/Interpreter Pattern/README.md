@@ -8,4 +8,4 @@ The Interpreter Design Pattern falls under the set of behavioral patterns. The p
 In the file 'input.txt' you enter the postfix expression you want the program to interpret</br>
 In the file 'instructions.txt' you enter the commands you want to be run on the expression</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;eval - evaluates the expression (unset variables have a value of 0)</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set {name} {value} - sets the variable with {name} to have {value}
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;set {name} {value} - sets the variable with {name} to have {value}</br>
