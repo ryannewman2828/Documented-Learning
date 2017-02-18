@@ -11,5 +11,5 @@ In the file 'commands.txt' you enter the commands you want to be run on the word
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;double - Prints the word twice</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;reverse - Prints out the reverse of the word</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;drop {n} - Prints the word with the first {n} characters dropped</br>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;replace {regex} {replacement} - Prints the word with the first set of characters that match the regex string {regex} replaced by {replacement}</br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;replace {regex} {replacement} - Replaces the first set of characters that match the regex string {regex}</br>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;grep {regex} - Prints the first set of characters in the word that match {regex}</br>
