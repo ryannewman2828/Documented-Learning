@@ -2,6 +2,8 @@
 In the field of software engineering, design patterns provide a general repeatable solution to commonly occuring problems. They provide templates for solving these problems that the developers can then fill in and adapt to their specific needs. Using design patterns can increase the readability of your code since the solution is common, reduce bugs since the solution is well tested and allows for easy scalability of the application due to the presence of cohesion and the absence of coupling. This directory aims to provide a sample implementation as well as a brief description for a large list of design patterns.
 
 ## Table of Contents
+* Builder Pattern: Response Builder<br>
+    A program that builds and prints HTTP responses to standard output using Java and The Builder Design Pattern
 * Decorator Pattern: Text Processing Decorator<br>
     A simple Text Processor that applies certain commands to lines of text implemented using Java and The Decorator Design Pattern
 * Interpreter Pattern: Postfix Expression Interpreter<br>
