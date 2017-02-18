@@ -1,0 +1,1 @@
+double allcaps reverse replace ^(...) GGG drop 2 grep (.)(..)+
