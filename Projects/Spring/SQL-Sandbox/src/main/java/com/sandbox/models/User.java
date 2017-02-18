@@ -9,6 +9,7 @@ public class User {
     private int grade;
     private boolean pass;
     private String fields;
+    private int sum;
 
     public int getId() {
         return id;
@@ -58,11 +59,13 @@ public class User {
         this.pass = pass;
     }
 
-    public String getFields() {
-        return fields;
-    }
+    public String getFields() { return fields; }
 
     public void setFields(String fields) {
         this.fields = fields;
     }
+
+    public int getSum() { return sum; }
+
+    public void setSum(int sum) { this.sum = sum; }
 }

@@ -53,37 +53,72 @@
     <div class="entry">
         <center><h2>Insert a value into the database</h2></center>
         <center><code>INSERT INTO users(name, email, salary, grade, pass) VALUES ('Ryan','ranewman@uwaterloo.ca', 100000, 100, 1);</code></center>
-        <center><button ng-click="exec1()">Execute</button></center>
+        <center><button ng-click="exec[0]()">Execute</button></center>
     </div>
     <div class="entry">
         <center><h2>Selecting all values from the DataBase</h2></center>
         <center><code>SELECT * FROM users;</code></center>
-        <center><button ng-click="exec2()">Execute</button></center>
+        <center><button ng-click="exec[1]()">Execute</button></center>
     </div>
     <div class="entry">
         <center><h2>Selecting only the name, email and salary</h2></center>
         <center><code>SELECT name, email, salary FROM users;</code></center>
-        <center><button ng-click="exec3()">Execute</button></center>
+        <center><button ng-click="exec[2]()">Execute</button></center>
     </div>
     <div class="entry">
         <center><h2>Select all passing users</h2></center>
         <center><code>SELECT * FROM users WHERE pass;</code></center>
-        <center><button ng-click="exec4()">Execute</button></center>
+        <center><button ng-click="exec[3]()">Execute</button></center>
     </div>
     <div class="entry">
         <center><h2>Select all users with a salary higher than 50000</h2></center>
         <center><code>SELECT * FROM users WHERE salary > 50000;</code></center>
-        <center><button ng-click="exec5()">Execute</button></center>
+        <center><button ng-click="exec[4]()">Execute</button></center>
     </div>
     <div class="entry">
         <center><h2>Select the name of the users who are failing with a salary higher than 70000</h2></center>
         <center><code>SELECT name FROM users WHERE salary > 70000 AND NOT pass;</code></center>
-        <center><button ng-click="exec6()">Execute</button></center>
+        <center><button ng-click="exec[5]()">Execute</button></center>
     </div>
     <div class="entry">
         <center><h2>Update all users to passing if they should be passing</h2></center>
         <center><code>UPDATE users SET pass = 1 WHERE grade >= 50;</code></center>
-        <center><button ng-click="exec7()">Execute</button></center>
+        <center><button ng-click="exec[6]()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Deletes all users with passing set to false</h2></center>
+        <center><code>DELETE FROM users WHERE NOT pass;</code></center>
+        <center><button ng-click="exec[7]()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Selects all the salaries that end in 0 and have at least 5 figures</h2></center>
+        <center><code>SELECT * FROM users WHERE salary LIKE ____%0;</code></center>
+        <center><button ng-click="exec[8]()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Selects the top 5 users</h2></center>
+        <center><code>SELECT * FROM users LIMIT 5;</code></center>
+        <center><button ng-click="exec[9]()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Sorts the users based on salary and then by name</h2></center>
+        <center><code>SELECT * FROM users ORDER BY salary, name;</code></center>
+        <center><button ng-click="exec[10]()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Sums the salary for people with the same name</h2></center>
+        <center><code>SELECT name, SUM(salary) FROM users GROUP BY name;</code></center>
+        <center><button ng-click="exec[11]()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Selects a distinct salaries from the users</h2></center>
+        <center><code>SELECT DISTINCT salary FROM users;</code></center>
+        <center><button ng-click="exec[12]()">Execute</button></center>
+    </div>
+    <div class="entry">
+        <center><h2>Sums the salary for people with the same email then sorts them by email</h2></center>
+        <center><code>SELECT name, email FROM users ORDER BY CASE WHEN email REGEXP '.@uwaterloo.ca' THEN 1 WHEN email REGEXP '.@hotmail.com' THEN 2 WHEN email REGEXP '.@gmail.com' THEN 3 ELSE 4 END ASC;"</code></center>
+        <center><button ng-click="exec[13]()">Execute</button></center>
     </div>
 
 </body>

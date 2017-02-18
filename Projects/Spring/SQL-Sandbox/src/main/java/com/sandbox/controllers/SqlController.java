@@ -47,4 +47,37 @@ public class SqlController {
 
     @RequestMapping("/update/pass")
     public void updatePass() { databaseService.updatePass(); }
+
+    @RequestMapping("/delete/fail")
+    public void deleteFail() { databaseService.deleteFailing(); }
+
+    @RequestMapping("/select/like")
+    public List<User> selectLike() {
+        return databaseService.selectLike();
+    }
+
+    @RequestMapping("/select/top")
+    public List<User> selectTop() {
+        return databaseService.selectTop();
+    }
+
+    @RequestMapping("/select/order")
+    public List<User> selectOrder() {
+        return databaseService.selectOrder();
+    }
+
+    @RequestMapping("/select/group")
+    public List<User> selectGroup() {
+        return databaseService.selectGroup();
+    }
+
+    @RequestMapping("/select/distinct")
+    public List<User> selectDistinct() {
+        return databaseService.selectDistinct();
+    }
+
+    @RequestMapping("/select/sort")
+    public List<User> selectSort() {
+        return databaseService.selectSort();
+    }
 }
