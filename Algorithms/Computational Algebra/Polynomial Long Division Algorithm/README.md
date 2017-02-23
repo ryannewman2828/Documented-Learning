@@ -1,0 +1,2 @@
+# Polynomial Long Division Algorithm
+This algorithm allows you to divide a polynomial by another polynomial of the same or lower degree with long division. This long division is similar to the long division taught in grade school with integers. Given a dividend and a divisor the algorithm produces a Q and a R such that dividend = divisor * Q + R. This algorithm can be used to factor polynomials into their simplest roots. Another such application is detecting errors in transmitted messages within a cyclic redundancy check.
