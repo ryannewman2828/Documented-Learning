@@ -9,8 +9,8 @@ arr = [int(maxNum * random.random()) for i in range(0, 10000)]
 digit = 1
 
 # Because the max in our list is 1000
-iters = math.log10(maxNum)
-while digit <= iters:
+iters = int(math.log10(maxNum))
+for digit in range(1, iters + 1):
     buckets = [Queue() for i in range(0, 10)]
     for i in range(0, len(arr)):
         index = 0
@@ -18,7 +18,6 @@ while digit <= iters:
             index = int((arr[i] % (10 ** digit)) / (10 ** (digit - 1)))
         buckets[index].put(arr[i])
     arr = []
-    digit += 1
     for i in range(0, 10):
         while not buckets[i].empty():
             arr.append(buckets[i].get())
