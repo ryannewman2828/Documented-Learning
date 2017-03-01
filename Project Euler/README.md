@@ -19,4 +19,9 @@
 18. Maximum path sum I
 19. Counting Sundays
 20. Factorial digit sum
+21. Amicable numbers
+22. Names scores
+23. Non-abundant sums
+24. Lexicographic permutations
+25. 1000-digit Fibonacci number
 67. Maximum path sum II
