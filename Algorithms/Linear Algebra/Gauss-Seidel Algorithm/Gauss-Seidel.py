@@ -22,8 +22,7 @@ b = np.transpose(np.array(bTemp)[np.newaxis])
 x = np.zeros_like(b)
 ITER_LIMIT = 10000
 L_STAR = inv(np.tril(matrix))
-a = np.triu(matrix, 1)
-T = np.dot(np.negative(L_STAR), a)
+T = np.dot(np.negative(L_STAR), np.triu(matrix, 1))
 C = np.dot(L_STAR, b)
 
 for i in range(ITER_LIMIT):
