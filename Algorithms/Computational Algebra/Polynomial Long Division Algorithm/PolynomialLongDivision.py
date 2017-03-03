@@ -14,7 +14,7 @@ class Polynomial:
         return self.coeffs[degree - 1]
 
     def __sub__(self, polynomial):
-        for i in range(0, len(polynomial.coeffs)):
+        for i in range(len(polynomial.coeffs)):
             self.coeffs[i] -= polynomial.coeffs[i]
         # Removes the powers with a coefficient of 0 from the end
         while self.coeffs[len(self.coeffs) - 1] == 0:
@@ -22,7 +22,7 @@ class Polynomial:
         return self
 
     def __mul__(self, other):
-        for i in range(0, len(self.coeffs)):
+        for i in range(len(self.coeffs)):
             self.coeffs[i] *= other
         return self
 

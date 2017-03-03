@@ -115,13 +115,13 @@ while True:
             s = strand
     if cont:
         for m in matches:
-            for j in range(0, len(s) - 1):
+            for j in range(len(s) - 1):
                 if inMatching(m, s[j], s[j + 1]):
                     matches.remove(m)
         m = ""
         s[0].saturated = True
         s[len(s) - 1].saturated = True
-        for n in range(0, len(s)):
+        for n in range(len(s)):
             if n % 2 == 0:
                 m = s[n].name
             else:
