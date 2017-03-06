@@ -10,6 +10,8 @@ In the field of software engineering, design patterns provide a general repeatab
     A program that reads, prints and evaluates a mathematical expression in postfix expression using Java and The Interpreter Design Pattern
 * Iterator Pattern: Linked List<br>
     An Implementation of a simple linked list using Java and The Iterator Design Pattern
+* Model-View-Controller Pattern: Graphics Demonstration
+    A simple demonstration of the JFrame and JPanel in Java making use of the Model-View-Controller Design Pattern<br>
 * Observer Pattern: Conway's Game of Life<br>
     An Implementation of Conway's Game of Life using Java and The Observer Design Pattern
 * Singleton Pattern: Main Character Skeleton Class<br>
