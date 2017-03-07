@@ -1,0 +1,2 @@
+# Depth-first Search Algorithm
+The Depth-first Search Algorithm is an algorithm used for searching a graph data structure. The algorithm works by once at a node, searching the path as deep as possible before backtracking. The worst case performance of this algorithm is O(|V| + |E|), where V represents the vertices in the graph and E represents the edges. Some applications of this algorithm include finding connected components, planarity testing and maze generation
