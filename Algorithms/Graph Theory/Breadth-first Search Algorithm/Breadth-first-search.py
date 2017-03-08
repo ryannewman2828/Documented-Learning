@@ -1,5 +1,5 @@
 #!bin/python
-
+from queue import Queue
 
 # program assumes valid input
 class Vertex:
@@ -17,11 +17,17 @@ class Vertex:
         self.neighbours.append(vertex)
 
 
-def DFS(vertex):
-    discovered.append(vertex)
-    for v in vertex.neighbours:
-        if v not in discovered:
-            DFS(v)
+def BFS(vertex):
+    set = [vertex]
+    queue = Queue()
+    queue.put(vertex)
+    while not queue.empty():
+        current = queue.get()
+        answer.append(current)
+        for v in current.neighbours:
+            if v not in set:
+                set.append(v)
+                queue.put(v)
 
 
 VERTICE_FILE_NAME = "vertice.txt"
@@ -40,8 +46,8 @@ for e in edges:
     vertices[e[0]].addNeighbour(vertices[e[1]])
     vertices[e[1]].addNeighbour(vertices[e[0]])
 
-discovered = []
+answer = []
 node = input("Enter the starting node: ")
-DFS(vertices[node])
+BFS(vertices[node])
 print("Search starting from " + node + " Visited in the following order: ")
-print(discovered)
+print(answer)

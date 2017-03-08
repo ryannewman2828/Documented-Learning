@@ -1,0 +1,2 @@
+# Breadth-first Search Algorithm
+The Breadth-first Search Algorithm is an algorithm used for searching a graph data structure. This algorithm works by once at a node, searching all the neighbours before moving into the next level of neighbours. The worst case performance of this algorithm is O(|V| + |E|), where V represents the vertices in the graph and E represents the edges. Some applications of this algorithm are finding the shortest path between two nodes, computing the maximum flow in a flow network and testing the bipartiteness of a graph. 
