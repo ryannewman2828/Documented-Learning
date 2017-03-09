@@ -6,7 +6,7 @@ EDGES_FILE_NAME = "edge.txt"
 # init inputs
 vertices = [line.rstrip('\n') for line in open(VERTICE_FILE_NAME)]
 edges = [tuple(line.rstrip('\n').split(" ")) for line in open(EDGES_FILE_NAME)]
-vertex = input("Enter the starting vertices: ")
+vertex = input("Enter the starting vertex: ")
 
 cheapMap = {}
 edgesMap = {}
