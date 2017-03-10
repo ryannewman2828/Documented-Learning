@@ -1,0 +1,9 @@
+ab 7
+ac 9
+af 14
+bc 10
+bd 15
+cd 11
+cf 2
+de 6
+ef 9

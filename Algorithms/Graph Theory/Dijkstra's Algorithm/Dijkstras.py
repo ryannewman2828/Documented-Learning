@@ -15,9 +15,8 @@ class Vertex:
         self.neighbours.append(vertex)
 
 
-
-VERTICE_FILE_NAME = "vertice.txt"
-EDGES_FILE_NAME = "edge.txt"
+VERTICE_FILE_NAME = "vertice2.txt"
+EDGES_FILE_NAME = "edge2.txt"
 
 # init list
 vertices = [Vertex(line.rstrip('\n')) for line in open(VERTICE_FILE_NAME)]
@@ -34,7 +33,6 @@ for e in edges:
 current = vertices[vertex]
 current.distance = 0
 unvisited = list(vertices.values())
-unvisited.remove(current)
 
 while True:
     for v in current.neighbours:
@@ -42,7 +40,7 @@ while True:
             dist = current.distance
             for e in edges:
                 if (e[0][0] == v.name and e[0][1] == current.name) or (e[0][1] == v.name and e[0][0] == current.name):
-                    dist += e[1]
+                    dist += int(e[1])
                     break
             if dist < v.distance:
                 v.distance = dist
