@@ -29,3 +29,6 @@ Projects/Spring/SQL-Sandbox/.mvn/wrapper/maven-wrapper.properties
 Projects/Spring/SQL-Sandbox/mvnw
 *.jar
 Projects/Spring/SQL-Sandbox/mvnw.cmd
+
+### Node.js ###
+node_modules
