@@ -1,7 +1,9 @@
 #!/usr/bin/python
+import random
 
+maxNum = 1000000
 # The array that is to be sorted
-arr = [4, 65, 25, 12, 22, 11]
+arr = [int(maxNum * random.random()) for i in range(10000)]
 
 for i in range(1, len(arr)):
     x = arr[i]

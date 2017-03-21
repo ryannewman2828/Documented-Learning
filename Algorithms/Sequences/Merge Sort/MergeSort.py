@@ -1,7 +1,9 @@
 #!/usr/bin/python
+import random
 
+maxNum = 1000000
 # The array that is to be sorted
-arr = [65, 25, 12, 22, 11, 45, 23, 5, 56, 11, 89]
+arr = [int(maxNum * random.random()) for i in range(10000)]
 
 
 def merge(listA, listB):
