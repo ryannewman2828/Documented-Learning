@@ -1,0 +1,2 @@
+# less
+The less command is basically a more powerful version of the 'more' command. Less allows you to read through a text file one screen at a time. It is more ideal to use less versus a text editor because less loads the document into memory one page at a time instead of all at once. Using the less command you can do things like changing the numbers of lines scrolled at once, move to specific positions in the file and search for patterns using regular expressions.
