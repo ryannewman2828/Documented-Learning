@@ -1,7 +1,10 @@
 import java.awt.*;
 import java.awt.event.*;
+
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
 import javax.swing.*;
-import java.util.*;
 
 public class JavaCalculator extends JFrame {
 	private Originator originator;
@@ -15,21 +18,18 @@ public class JavaCalculator extends JFrame {
 	private JButton jbtSolve;
 	private JButton jbtClear;
 	private JButton jbtRevert;
+	private JTextField jtfEquation;
 	private JTextField jtfResult;
-	private JTextField jtfEqn;
-	private int curNum;
-	private int curTotal;
-	private String prevSymbol;
-
-	private String display = "";
-	private String equation = "";
+	private String equation;
 
 	public JavaCalculator() {
-		curNum = 0;
-		prevSymbol = "";
+		equation = "";
 		JPanel p1 = new JPanel();
+		JPanel p2 = new JPanel();
+		JPanel p3 = new JPanel();
+		
+		// Initialize the middle column of buttons
 		p1.setLayout(new GridLayout(4, 3));
-
 		for (int i = 1; i < numButtons.length; i++) {
 			numButtons[i] = new JButton(i + "");
 			p1.add(numButtons[i]);
@@ -41,18 +41,18 @@ public class JavaCalculator extends JFrame {
 		jbtRevert = new JButton("Z");
 		p1.add(jbtRevert);
 
-		JPanel p2 = new JPanel();
+		// Initialize the text fields
 		p2.setLayout(new FlowLayout());
+		jtfEquation = new JTextField(20);
+		jtfEquation.setHorizontalAlignment(JTextField.RIGHT);
+		jtfEquation.setEditable(false);
+		p2.add(jtfEquation);
 		jtfResult = new JTextField(20);
-		jtfResult.setHorizontalAlignment(JTextField.RIGHT);
+		jtfResult.setHorizontalAlignment(JTextField.LEFT);
 		jtfResult.setEditable(false);
 		p2.add(jtfResult);
-		jtfEqn = new JTextField(20);
-		jtfEqn.setHorizontalAlignment(JTextField.LEFT);
-		jtfEqn.setEditable(false);
-		p2.add(jtfEqn);
 
-		JPanel p3 = new JPanel();
+		// Initialize the right column of buttons
 		p3.setLayout(new GridLayout(5, 1));
 		jbtAdd = new JButton("+");
 		p3.add(jbtAdd);
@@ -65,18 +65,19 @@ public class JavaCalculator extends JFrame {
 		jbtSolve = new JButton("=");
 		p3.add(jbtSolve);
 
+		
 		JPanel p = new JPanel();
 		p.setLayout(new GridLayout());
 		p.add(p2, BorderLayout.NORTH);
 		p.add(p1, BorderLayout.SOUTH);
 		p.add(p3, BorderLayout.EAST);
-
 		add(p);
 
+		
+		// Setup the listeners
 		for (int i = 0; i < numButtons.length; i++) {
 			numButtons[i].addActionListener(new NumListener(i));
 		}
-
 		jbtAdd.addActionListener(new MiscListener("+"));
 		jbtSubtract.addActionListener(new MiscListener("-"));
 		jbtMultiply.addActionListener(new MiscListener("*"));
@@ -85,9 +86,21 @@ public class JavaCalculator extends JFrame {
 		jbtClear.addActionListener(new MiscListener("c"));
 		jbtRevert.addActionListener(new MiscListener("z"));
 
+		// Initialize memento objects
 		originator = new Originator();
 		careTaker = new CareTaker();
 
+	}
+
+	private String interpret() {
+		ScriptEngineManager mgr = new ScriptEngineManager();
+		ScriptEngine engine = mgr.getEngineByName("JavaScript");
+		try {
+			return engine.eval(equation).toString();
+		} catch (ScriptException e) {
+			e.printStackTrace();
+			return null;
+		}
 	}
 
 	class NumListener implements ActionListener {
@@ -99,10 +112,8 @@ public class JavaCalculator extends JFrame {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			curNum *= 10;
-			curNum += num;
-			display = jtfResult.getText();
-			jtfResult.setText(display + num);
+			equation += num;
+			jtfEquation.setText(equation);
 		}
 	}
 
@@ -116,67 +127,26 @@ public class JavaCalculator extends JFrame {
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if (symbol.equals("=")) {
-				switch (prevSymbol) {
-				case "+":
-					curTotal += curNum;
-					break;
-				case "-":
-					curTotal -= curNum;
-					break;
-				case "*":
-					curTotal *= curNum;
-					break;
-				case "/":
-					curTotal /= curNum;
-					break;
-				default:
-					break;
+				if (!equation.equals("")) {
+					originator.setEquation(equation);
+					jtfResult.setText(interpret());
+					originator.setResult(jtfResult.getText());
+					jtfEquation.setText("");
+					equation = "";
+					careTaker.add(originator.saveCalculation());
 				}
-				originator.setEquation(jtfResult.getText());
-				jtfEqn.setText(curTotal + "");
-				originator.setResult(jtfEqn.getText());
-				jtfResult.setText("");
-				curNum = 0;
-				curTotal = 0;
-				prevSymbol = "";
-				careTaker.add(originator.saveCalculation());
 			} else if (symbol.equals("c")) {
+				jtfEquation.setText("");
 				jtfResult.setText("");
-				jtfEqn.setText("");
-				curNum = 0;
-				curTotal = 0;
-				prevSymbol = "";
+				equation = "";
 			} else if (symbol.equals("z")) {
 				originator.restore(careTaker.pop());
-				jtfResult.setText(originator.getEquation());
-				jtfEqn.setText(originator.getResult());
-				curNum = 0;
-				curTotal = Integer.parseInt(jtfEqn.getText());
-				prevSymbol = "z";
+				equation = originator.getEquation();
+				jtfEquation.setText(equation);
+				jtfResult.setText(originator.getResult());
 			} else {
-				display = jtfResult.getText();
-				jtfResult.setText(display + " " + symbol + " ");
-				switch (prevSymbol) {
-				case "+":
-					curTotal += curNum;
-					break;
-				case "-":
-					curTotal -= curNum;
-					break;
-				case "*":
-					curTotal *= curNum;
-					break;
-				case "/":
-					curTotal /= curNum;
-					break;
-				case "z":
-					break;
-				default:
-					curTotal = curNum;
-					break;
-				}
-				curNum = 0;
-				prevSymbol = symbol;
+				equation += " " + symbol + " ";
+				jtfEquation.setText(equation);
 			}
 		}
 

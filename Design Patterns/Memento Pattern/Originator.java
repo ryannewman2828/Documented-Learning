@@ -25,8 +25,13 @@ public class Originator {
 	}
 
 	public void restore(Memento source) {
-		equation = source.getEquation();
-		result = source.getResult();
+		if (source != null) {
+			equation = source.getEquation();
+			result = source.getResult();
+		} else {
+			equation = "";
+			result = "";
+		}
 	}
 
 }
