@@ -1,0 +1,2 @@
+# sudo
+The sudo command, which is short for 'superuser do', allows a user to run commands the permissions of another user, by default this is the root user. Also by default, after providing a password the user must authenticate with their own password and then if their authenticated if their located in the configuration file usually located at /etc/sudoers then the command gets executed. This command is also commonly executed as 'sudo su' which allows the user to invoke a new shell as the root user. 
