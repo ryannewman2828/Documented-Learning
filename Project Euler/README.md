@@ -24,4 +24,19 @@
 23. Non-abundant sums
 24. Lexicographic permutations
 25. 1000-digit Fibonacci number
+26. Reciprocal cycles
+27. Quadratic primes
+28. Number spiral diagonals
+29. Distinct powers
+30. Digit fifth powers
+31. Coin sums
+32. Pandigital products
+33. Digit cancelling fractions
+34. Digit factorials
+35. Circular primes
+36. Double-base palindromes
+37. Truncatable primes
+38. Pandigital multiples
+39. Integer right triangles
+40. Champernowne's constant
 67. Maximum path sum II
