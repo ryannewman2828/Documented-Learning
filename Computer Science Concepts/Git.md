@@ -14,4 +14,14 @@ You also will want to  setup the git global configuration to include your userna
 The global config makes it so the configuration is on a user basis while local is for repository specific settings. 
 
 ## Saving changes
-To save changes you first use the <code>git add</code> command to take changes from your local directory and add it to the staging area which signals to git that you want to update the file. Once you have staged all the files you want to change, you can run <code>git commit -m "message"</code> to save a snapshot of the code to your local git repository. 
+To save changes you first use the <code>git add</code> command to take changes from your local directory and add it to the staging area which signals to git that you want to update the file.
+Once you have staged all the files you want to change, you can run <code>git commit -m "message"</code> to save a snapshot of the code to your local git repository. 
+To save your local changes without commiting them you can also stash them.
+To stash changes run the <code>git stash</code> command.
+Running this command will stash both staged and unstaged changes, while not stashing gitignored and new files. 
+Stashing your changes allows you save away the changes you've made without commiting them to work with a clean version of the project.
+You can use <code>git stash apply</code> or <code>git stash pop</code> to reapply the changes from the stash to the working copy. 
+Finally you can tell git to ignore files by declaring the file globs in your .gitignore file.
+
+## Status & History
+
