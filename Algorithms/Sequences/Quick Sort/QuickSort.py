@@ -3,10 +3,10 @@ import random
 
 maxNum = 1000000
 # The array that is to be sorted
-arr = [int(maxNum * random.random()) for i in range(100000)]
+array = [int(maxNum * random.random()) for i in range(100000)]
 
 
-def partition(array, lo, hi):
+def partition(lo, hi):
     pivot = array[lo]
     i = lo - 1
     j = hi + 1
@@ -27,12 +27,12 @@ def partition(array, lo, hi):
         array[j] = temp
 
 
-def quickSort(array, lo, hi):
+def quickSort(lo, hi):
     if lo < hi:
-        p = partition(array, lo, hi)
-        quickSort(array, lo, p)
-        quickSort(array, p + 1, hi)
+        p = partition(lo, hi)
+        quickSort(lo, p)
+        quickSort(p + 1, hi)
 
 
-quickSort(arr, 0, len(arr) - 1)
-print(arr)
+quickSort(0, len(array) - 1)
+print(array)
