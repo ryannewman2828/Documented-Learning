@@ -1,0 +1,4 @@
+# Simplex Algorithm
+The Simplex Algorithm is a popular algorithm for solving linear programs. This algorithm takes a linear program in standard form as input. This algorithm can function because of the fact that if there is a maximum in the feasible region then we can resolve the problem to a finite amount of computations because of the finite amount of extreme points. The algorithm works in two main steps. The first step is having the linear program in canonical form, from which we can derive a basic feasible solution. If we instead derive that the feasible region is empty then we know the linear program is infeasible. In the second step, the basic feasible solution is used in conjuntion with the Simplex Algorithm to find that the linear program is either unbounded or the optimal solution. 
+
+The rest of this description pending on Next Weeks Lectures. 
