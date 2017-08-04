@@ -3,3 +3,4 @@ Coursera is a website that works with universities from around the world to offe
 
 ## Table of Contents
 * Machine Learning: Stanford University
+* Introduction to Data Science in Python
