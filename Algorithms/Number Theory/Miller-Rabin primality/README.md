@@ -1,2 +1,2 @@
-# Miller-Rabin Primality
-Todo
+# Miller-Rabin Primality Test
+The Miller-Rabin Primality Test is a test to determine if a number is a probable prime. This test functions by relying on a set of equatlities that holds true for prime values, then checks whether or not they hold for the candidate prime. This algorithm is based on the contrapositive of Fermat's little theorem and also makes uses of other theroems such as Euclids lemma. It can be shown that there is a lower bound of 75% when testing bases for the compositeness of n and we can increase the accuracy of the primality test by increasing the number of bases tested. By increasing the parameter k to be suffeciently large we get an extremely small probability that a number is falsely reported as prime.  
