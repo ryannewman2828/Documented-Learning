@@ -11,7 +11,7 @@ r = b
 rPrev = a
 
 while r != 0:
-    q = int(rPrev / r)
+    q = rPrev // r
     tmp = r
     r *= -q
     r += rPrev

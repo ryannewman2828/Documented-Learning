@@ -6,7 +6,7 @@ start = datetime.now()
 if n <= 1:
     exit()
 
-limit = int((n + 1) / 2)
+limit = (n + 1) // 2
 arr = [True] * limit
 
 m = len(arr)

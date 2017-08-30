@@ -15,7 +15,7 @@ for digit in range(1, iters + 1):
     for i in range(len(arr)):
         index = 0
         if arr[i] < 10 ** iters:
-            index = int((arr[i] % (10 ** digit)) / (10 ** (digit - 1)))
+            index = (arr[i] % (10 ** digit)) // (10 ** (digit - 1))
         buckets[index].put(arr[i])
     arr = []
     for i in range(10):

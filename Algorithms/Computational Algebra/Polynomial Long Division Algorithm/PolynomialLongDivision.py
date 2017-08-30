@@ -61,7 +61,7 @@ def longDivision(dividend, divisor):
         coeffs = [0] * (dividend.degree() - divisor.degree())
         coeffs.extend(divisor.coeffs)
         d = Polynomial(coeffs)
-        q[dividend.degree() - divisor.degree()] = int(dividend[dividend.degree()] / d[d.degree()])
+        q[dividend.degree() - divisor.degree()] = dividend[dividend.degree()] // d[d.degree()]
         d *= q[dividend.degree() - divisor.degree()]
         dividend -= d
     return Polynomial(q), dividend

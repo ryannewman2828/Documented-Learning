@@ -26,8 +26,8 @@ def mergeSort(array):
     if len(array) == 1:
         return array
 
-    listA = mergeSort(array[:int(len(array) / 2)])
-    listB = mergeSort(array[int(len(array) / 2):])
+    listA = mergeSort(array[:len(array) // 2])
+    listB = mergeSort(array[len(array) // 2:])
 
     return merge(listA, listB)
 

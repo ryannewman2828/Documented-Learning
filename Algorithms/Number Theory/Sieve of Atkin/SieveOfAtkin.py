@@ -20,7 +20,7 @@ list3 = [11, 23, 47, 59]
 listW = list1 + list2 + list3
 
 for x in listW:
-    for w in range(int(limit / 60) + 1):
+    for w in range(limit // 60 + 1):
         arr[60 * w + x] = False
 
 
