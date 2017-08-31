@@ -1,1 +1,2 @@
 # KMP Algorithm
+The Knuth-Morris-Pratt Algorithm is a string matching algorithm that takes advantage of information in the text to determine the next match when a mismatch occurs. This algorithm preprocesses a failure array which for any index i reports the length of the largest prefix that is also a suffix. The actual algorithm functions by when on a mismatch, shifts the pattern to the index stored in the failure array. The runtime of the preprocessing is O(m) and the runtime of the algorithm is O(n) where m is the length of the pattern and n is the length of the text. 
