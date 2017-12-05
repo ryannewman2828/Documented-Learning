@@ -24,4 +24,20 @@ You can use <code>git stash apply</code> or <code>git stash pop</code> to reappl
 Finally you can tell git to ignore files by declaring the file globs in your .gitignore file.
 
 ## Status & History
+You can check the status of the git staging area by running the <code>git status</code> command. 
+This can be used to check which files have been changed and which files have not been tracked by git yet. 
+Files that have not yet been tracked by git fall into two main categories, they have either not been added yet or they have been git ignored.
+Git will let you ignore files and directories by placing them in the <code>.gitignore</code> file.
+Finally you can view the commited history with the <code>git log</code> command.
+You can list project history, filter it and even search for specific changes.
+This command has many option to allow for paged, filtered and formatted responses.
+There is also a 40 character SHA-1 checksum issued with the commit which is a unique id specific to the commit that ensures its integrity.
 
+
+## Undoing Changes
+
+## Syncing
+
+## Pull Requests
+
+## Branching
