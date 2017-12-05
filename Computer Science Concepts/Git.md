@@ -33,8 +33,14 @@ You can list project history, filter it and even search for specific changes.
 This command has many option to allow for paged, filtered and formatted responses.
 There is also a 40 character SHA-1 checksum issued with the commit which is a unique id specific to the commit that ensures its integrity.
 
-
 ## Undoing Changes
+You can use the <code>git checkout</code> command to check out files and commits.
+You can view an old state of the project without altering it in its current state.
+This is essentially a way of loading a previous version of your project without altering the current version.
+You can also undo a commited snapshot by performing a <code>git revert</code> which undoes your current changes and appends a new commit with the resulting content onto your git history.
+You can also do something called resetting which goes back to a previous state and removes all subsequent commits, this can be accomplished by calling <code>git reset</code>.
+Finally there exists a convencience command which removed all untracked files from your working directory and this command is <code>git clean</code>.
+You can use <code>git clean</code> with <code>git reset --hard</code> to return the working state of the last particular commit. 
 
 ## Syncing
 
