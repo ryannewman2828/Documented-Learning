@@ -43,6 +43,15 @@ Finally there exists a convencience command which removed all untracked files fr
 You can use <code>git clean</code> with <code>git reset --hard</code> to return the working state of the last particular commit. 
 
 ## Syncing
+This section is dedicated to explaining how git can connect and be used with an external central repository.
+You can use the <code>git remote</code> command is used for viewing, connecting and deleting remote repositories.
+Remotes are key value pairs where the key is a code name for the repository and the value is a url.
+The origin remote is automatically created when you first clone a repository.
+This is also why most central repositories are called origin.
+You can use the <code>git fetch</code> command to import commits and branches from a remote.
+You can also merge upstream changes in your local branch by using the <code>git pull</code> command.
+This is the same as <code>git fetch</code> followed by <code>git merge</code>.
+Finally to transfer your changes to a remote repository you can use the <code>git push</code> command.
 
 ## Pull Requests
 
