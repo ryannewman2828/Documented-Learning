@@ -62,3 +62,9 @@ The pull request cab ve approved and then the feature code will be merged into t
 You can also perform pull requests between different repositories.
 
 ## Branching
+Git branches are effectively a pointer to a previous commit.
+They are used for when you want to add a new feature or fix a bug and ensacupalte your changes in a linear workflow.
+This allows for a cleaner main code flow and makes it easier to screen code before it gets deployed to production.
+You can use the <code>git branch</code> command to create, delete, rename and list branches.
+You can create a branch based off the current snapshot to create a feature or fix a bug then merge when you're finished.
+You can create a branch with <code>git branch {branch-name}</code> and delete it with <code>git branch -d {branch-name}</code>
