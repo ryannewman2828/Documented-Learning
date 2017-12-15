@@ -54,5 +54,11 @@ This is the same as <code>git fetch</code> followed by <code>git merge</code>.
 Finally to transfer your changes to a remote repository you can use the <code>git push</code> command.
 
 ## Pull Requests
+A pull request requires the merging of two distinct branches into one which deviates from the centralized work flow.
+The process for a pull request goes as follows. 
+First a developer creates a feature in a dedicated branch and pushes it to a repository.
+The developer then creates a pull request which the rest of the developers on the project can review.
+The pull request cab ve approved and then the feature code will be merged into the official branch, usually under certain branching strategies, the developer branch.
+You can also perform pull requests between different repositories.
 
 ## Branching
