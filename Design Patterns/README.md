@@ -6,6 +6,8 @@ In the field of software engineering, design patterns provide a general repeatab
     A program that builds and prints HTTP responses to standard output using Java and The Builder Design Pattern
 * Decorator Pattern: Text Processing Decorator<br>
     A simple Text Processor that applies certain commands to lines of text implemented using Java and The Decorator Design Pattern
+* Factory Pattern: Currency Symbol Reporter<br>
+    A simple program that takes in a country as input and prints the symbol of that countries currency using Java and the Factory Design Pattern
 * Interpreter Pattern: Postfix Expression Interpreter<br>
     A program that reads, prints and evaluates a mathematical expression in postfix expression using Java and The Interpreter Design Pattern
 * Iterator Pattern: Linked List<br>
@@ -13,7 +15,7 @@ In the field of software engineering, design patterns provide a general repeatab
 * Memento Pattern: Calculator with History Function<br>
     An Implementation of a simple calculator that keeps tracks of its previous calculation written in Java and programmed with the Memento Design Pattern
 * Model-View-Controller Pattern: Graphics Demonstration
-    A simple demonstration of the JFrame and JPanel in Java making use of the Model-View-Controller Design Pattern<br>
+    A simple demonstration of the JFrame and JPanel in Java making use of the Model-View-Controller Design Pattern
 * Observer Pattern: Conway's Game of Life<br>
     An Implementation of Conway's Game of Life using Java and The Observer Design Pattern
 * Singleton Pattern: Main Character Skeleton Class<br>
