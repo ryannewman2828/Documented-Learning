@@ -20,5 +20,7 @@ In the field of software engineering, design patterns provide a general repeatab
     An Implementation of Conway's Game of Life using Java and The Observer Design Pattern
 * Singleton Pattern: Main Character Skeleton Class<br>
     A Skeleton Class for a Main Character using the Singleton Design Pattern that can be used in Java based game
+* State Pattern: Side Scroller Character<br>
+    A Character that can be used in a side scrolling video game programmed using Java and the State Design Pattern.
 * Strategy Pattern: Robocode Drone<br>
     A Robotic tank programmed with the robocode api to fight other tanks in simulated warfare, programmed with the use of the Strategy Design Pattern
