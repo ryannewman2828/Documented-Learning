@@ -19,6 +19,18 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "0.3.0+1"
+  angular_forms:
+    description:
+      name: angular_forms
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.0"
+  angular_router:
+    description:
+      name: angular_router
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "1.0.2"
   angular_test:
     description:
       name: angular_test
@@ -361,6 +373,12 @@ packages:
       url: "https://pub.dartlang.org"
     source: hosted
     version: "1.6.3"
+  stream_transform:
+    description:
+      name: stream_transform
+      url: "https://pub.dartlang.org"
+    source: hosted
+    version: "0.0.9"
   string_scanner:
     description:
       name: string_scanner
