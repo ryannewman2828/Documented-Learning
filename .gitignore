@@ -1,6 +1,8 @@
 *.test
 *.exe
 
+.DS_Store
+
 target/
 !.mvn/wrapper/maven-wrapper.jar
 
@@ -36,3 +38,6 @@ node_modules
 
 ## Django ##
 *.cpython-36.*
+
+## Dart ##
+.pub
