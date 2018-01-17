@@ -29,4 +29,9 @@ class HeroDetailComponent implements OnInit {
     var id = int.parse(_id ?? '', onError: (_) => null);
     if (id != null) hero = await (_heroService.getHero(id));
   }
+
+  Future<Null> save() async {
+    await _heroService.update(hero);
+    goBack();
+  }
 }
