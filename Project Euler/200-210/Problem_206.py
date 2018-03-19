@@ -12,6 +12,7 @@ def check(num):
         count += 1
     return True
 
+
 ans = 138902663  # sqrt(19293949596979899)
 while not check(ans ** 2):
     ans -= 1
