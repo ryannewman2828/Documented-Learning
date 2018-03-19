@@ -5,6 +5,7 @@ import 'package:angular/angular.dart';
 import 'package:http/http.dart';
 import 'package:http/testing.dart';
 import 'src/hero.dart';
+
 @Injectable()
 class InMemoryDataService extends MockClient {
   static final _initialHeroes = [
@@ -26,11 +27,10 @@ class InMemoryDataService extends MockClient {
     var data;
     switch (request.method) {
       case 'GET':
-        final id =
-        int.parse(request.url.pathSegments.last, onError: (_) => null);
+        final id = int.parse(request.url.pathSegments.last, onError: (_) => null);
+
         if (id != null) {
-          data = _heroesDb
-              .firstWhere((hero) => hero.id == id); // throws if no match
+          data = _heroesDb.firstWhere((hero) => hero.id == id); // throws if no match
         } else {
           String prefix = request.url.queryParameters['name'] ?? '';
           final regExp = new RegExp(prefix, caseSensitive: false);
