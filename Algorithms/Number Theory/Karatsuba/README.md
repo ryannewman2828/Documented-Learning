@@ -9,6 +9,6 @@ y = y<sub>1</sub>B<sup>m</sup> + y<sub>0</sub><br>
 xy = (x<sub>1</sub>B<sup>m</sup> + x<sub>0</sub>)(y<sub>1</sub>B<sup>m</sup> + y<sub>0</sub>)<br>
 xy = pHigh * B<sup>2m</sup> + pMid * B<sup>m</sup> + pLow<br>
 where: <br>
-pHigh = x<sub>1</sub>y<sub>1</sub>
-pLow = x<sub>0</sub>y<sub>0</sub>
+pHigh = x<sub>1</sub>y<sub>1</sub><br>
+pLow = x<sub>0</sub>y<sub>0</sub><br>
 pMid = (x<sub>1</sub> + x<sub>0</sub>)(y<sub>1</sub> + y<sub>0</sub>) - pHigh - pLow
