@@ -41,3 +41,6 @@ node_modules
 
 ## Dart ##
 .pub
+
+## Python ##
+venv/

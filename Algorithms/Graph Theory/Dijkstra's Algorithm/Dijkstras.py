@@ -15,8 +15,8 @@ class Vertex:
         self.neighbours.append(vertex)
 
 
-VERTICE_FILE_NAME = "vertice2.txt"
-EDGES_FILE_NAME = "edge2.txt"
+VERTICE_FILE_NAME = "vertice.txt"
+EDGES_FILE_NAME = "edge.txt"
 
 # init list
 vertices = [Vertex(line.rstrip('\n')) for line in open(VERTICE_FILE_NAME)]

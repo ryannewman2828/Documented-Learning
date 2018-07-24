@@ -27,14 +27,9 @@ class Disjoint:
 class Vertex:
     def __init__(self, name):
         self.name = name
-        self.neighbours = []
-        self.distance = float('inf')
 
     def __eq__(self, other):
         self.name == other.name
-
-    def addNeighbour(self, vertex):
-        self.neighbours.append(vertex)
 
 
 VERTICE_FILE_NAME = "vertice2.txt"
@@ -45,14 +40,9 @@ vertices = [Vertex(line.rstrip('\n')) for line in open(VERTICE_FILE_NAME)]
 vertices = dict((v.name, v) for v in vertices)
 edges = [tuple(line.rstrip('\n').split(" ")) for line in open(EDGES_FILE_NAME)]
 
-# connect the vertices
-for e in edges:
-    vertices[e[0][0]].addNeighbour(vertices[e[0][1]])
-    vertices[e[0][1]].addNeighbour(vertices[e[0][0]])
-
 A = []
 sets = Disjoint()
-for v in vertices.iterkeys():
+for v in list(vertices.keys()):
     sets.createSet(v)
 
 edges = sorted(edges, key=lambda x: int(x[1]), reverse=False)
