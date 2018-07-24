@@ -1,0 +1,7 @@
+ae 1
+cd 2
+ab 3
+be 4
+bc 5
+ec 6
+ed 7
