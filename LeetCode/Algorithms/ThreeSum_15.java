@@ -1,5 +1,10 @@
 import java.util.*;
 
+/**
+ * This question can be solved in quadratic time by using the reduction of 2 sum.
+ * The method visits every element in the list once. Once at the element we calculate the 2 sum of the remaining
+ * elements in the list.
+ */
 public class ThreeSum_15 {
     public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> solutions = new ArrayList<>();
