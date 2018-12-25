@@ -17,10 +17,11 @@ Virtual Machine - An emulation of a computer system.
 The difference between a container and a Virtual Machine is that a container is lightweight, 
 runs natively on linux and shares the kernel with the host system and other containers.
 A virtual Machine runs an operating like system on the host system with virtual access to the resources.
-<br>
+<br><br>
 A portable image file, called a dockerfile, can be written with the application to make sure every component travels together.
 This allows developers to make sure the development environment matches the production environment for the application.
 A dockerfile defines the environment for the container. 
+
 You can use the following command to build the image:
 <br>
 <center><code>docker build -t <image-name> .</code></center>
@@ -41,18 +42,19 @@ These services are really just containers in production.
 We can make use of a <code>docker-compose.yml</code> file to define, scale and run these services.
 By running the 
 <br>
-<center><code>docker swarm init</code></center>
+<center><code>docker swarm init</code></center><br>
 <center><code>docker stack deploy -c docker-compose.yml <service-name></code></center>
 <br>
 you will run however many instances of the image you defined in the configuration file on one host.
 By changing the replicas field in the file you can either scale up or down the number of application instances.
 Finally you need to teardown the application and the swarm using the following commands:
 <br>
-<center><code>docker stack rm <service-name></code></center>
+<center><code>docker stack rm <service-name></code></center><br>
 <center><code>docker swarm leave --force</code></center>
 
 ## Swarms
-
+todo
 ## Stacks
-
+todo
 ## Deploys
+todo
