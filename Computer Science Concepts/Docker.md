@@ -45,6 +45,7 @@ By running the
 <center><code>docker swarm init</code></center><br>
 <center><code>docker stack deploy -c docker-compose.yml <service-name></code></center>
 <br>
+
 you will run however many instances of the image you defined in the configuration file on one host.
 By changing the replicas field in the file you can either scale up or down the number of application instances.
 Finally you need to teardown the application and the swarm using the following commands:
