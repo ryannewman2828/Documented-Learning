@@ -24,11 +24,11 @@ A dockerfile defines the environment for the container.
 
 You can use the following command to build the image:
 <br>
-<center><code>docker build -t '<image-name>' .</code></center>
+<center><code>docker build -t &lt;image-name&gt; .</code></center>
 <br>
 You can run the docker image by using the command (-d to run detached):
 <br>
-<center><code>docker run -d '<image-name>'</code></center>
+<center><code>docker run -d &lt;image-name&gt;</code></center>
 <br>
 Finally you can view the list of running containers by running:
 <br>
@@ -43,13 +43,13 @@ We can make use of a <code>docker-compose.yml</code> file to define, scale and r
 By running the 
 <br>
 <center><code>docker swarm init</code></center><br>
-<center><code>docker stack deploy -c docker-compose.yml '<service-name>'</code></center>
+<center><code>docker stack deploy -c docker-compose.yml &lt;service-name&gt;</code></center>
 <br><br>
 you will run however many instances of the image you defined in the configuration file on one host.
 By changing the replicas field in the file you can either scale up or down the number of application instances.
 Finally you need to teardown the application and the swarm using the following commands:
 <br><br>
-<center><code>docker stack rm '<service-name>'</code></center><br>
+<center><code>docker stack rm &lt;service-name&gt;</code></center><br>
 <center><code>docker swarm leave --force</code></center>
 
 ## Swarms
