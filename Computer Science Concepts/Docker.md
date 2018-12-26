@@ -24,11 +24,11 @@ A dockerfile defines the environment for the container.
 
 You can use the following command to build the image:
 <br>
-<center><code>docker build -t <image-name> .</code></center>
+<center><code>docker build -t '<image-name>' .</code></center>
 <br>
 You can run the docker image by using the command (-d to run detached):
 <br>
-<center><code>docker run -d <image-name></code></center>
+<center><code>docker run -d '<image-name>'</code></center>
 <br>
 Finally you can view the list of running containers by running:
 <br>
@@ -43,18 +43,25 @@ We can make use of a <code>docker-compose.yml</code> file to define, scale and r
 By running the 
 <br>
 <center><code>docker swarm init</code></center><br>
-<center><code>docker stack deploy -c docker-compose.yml <service-name></code></center>
+<center><code>docker stack deploy -c docker-compose.yml '<service-name>'</code></center>
 <br><br>
 you will run however many instances of the image you defined in the configuration file on one host.
 By changing the replicas field in the file you can either scale up or down the number of application instances.
 Finally you need to teardown the application and the swarm using the following commands:
 <br><br>
-<center><code>docker stack rm <service-name></code></center><br>
+<center><code>docker stack rm '<service-name>'</code></center><br>
 <center><code>docker swarm leave --force</code></center>
 
 ## Swarms
-todo
+
+A swarm is a cluster of nodes all running Docker.
+A machine in the cluster gets populated with containers and the ruling for how these get distributed is specified in the compose file.
+The docker commands you run are not distributed to a swarm manager which is responsible for executing these commands.
+Machines that join the swarm are reffered to as workers which provide capacity.
+By running <code>docker swarm init</code> you can switch docker into swarm mode.
+By running <code>docker swarm join</code> you can add the current machine to the swarm as a worker.
+
 ## Stacks
-todo
-## Deploys
-todo
+
+A stack is a collection of services that have common dependencies and can be scaled together.
+A single stack is sufficent for an entire application although complex systems might want multiple for better abstraction.
